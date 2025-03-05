@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import "./EmpathyTest.css";  // EmpathyTest.css を適用
+
 
 const questions = [
   {
@@ -54,19 +56,15 @@ export default function EmpathyTest() {
   };
 
   return (
-    <div className="max-w-lg mx-auto p-6 bg-white shadow-lg rounded-xl">
-      <h1 className="text-xl font-bold mb-4">🔥 営業向け共感力診断テスト 🔥</h1>
+    <div className="container">  // ここが重要！ className="container" にする
+      <h1>🔥 営業向け共感力診断テスト 🔥</h1>
       {result ? (
-        <div className="text-lg font-semibold text-center">{result}</div>
+        <div className="result">{result}</div>
       ) : (
         <div>
-          <p className="font-medium mb-4">{questions[currentIndex].question}</p>
+          <p className="question">{questions[currentIndex].question}</p>
           {questions[currentIndex].options.map((option) => (
-            <button
-              key={option.text}
-              className="block w-full mb-2 p-3 bg-blue-500 text-white rounded hover:bg-blue-600"
-              onClick={() => handleAnswer(option.type)}
-            >
+            <button key={option.text} onClick={() => handleAnswer(option.type)}>
               {option.text}
             </button>
           ))}
@@ -74,4 +72,4 @@ export default function EmpathyTest() {
       )}
     </div>
   );
-}
+  
