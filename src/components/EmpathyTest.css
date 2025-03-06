@@ -1,43 +1,57 @@
+/* 📌 全体のデザインを調整 */
 .container {
-    max-width: 600px;
-    margin: 20px auto;
-    padding: 20px;
-    background: white;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
-  }
-  
-  h1 {
-    font-size: 24px;
-    color: #ff5733;
-  }
-  
-  .question {
-    font-size: 18px;
-    margin-bottom: 10px;
-  }
-  
-  button {
-    display: block;
-    width: 100%;
-    padding: 12px;
-    margin: 8px 0;
-    font-size: 16px;
-    border: none;
-    border-radius: 5px;
-    background-color: #007bff;
-    color: white;
-    cursor: pointer;
-  }
-  
-  button:hover {
-    background-color: #0056b3;
-  }
-  
-  .result {
-    font-size: 20px;
-    font-weight: bold;
-    margin-top: 20px;
-  }
-  
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 30px;
+  background: linear-gradient(135deg, #fdfbfb, #ebedee); /* 淡いグラデーション */
+  border-radius: 20px;
+  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  font-family: "Poppins", sans-serif; /* Googleフォント */
+}
+
+/* 📌 タイトルのデザイン */
+h1 {
+  font-size: 28px;
+  font-weight: bold;
+  color: #ff3e6b; /* ネオンピンク */
+  text-shadow: 2px 2px 5px rgba(255, 62, 107, 0.3);
+}
+
+/* 📌 質問部分のデザイン */
+.question {
+  font-size: 20px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* 📌 ボタンのデザイン */
+button {
+  display: block;
+  width: 90%;
+  padding: 15px;
+  margin: 12px auto;
+  font-size: 18px;
+  border: none;
+  border-radius: 30px; /* 丸みをつける */
+  background: linear-gradient(135deg, #6a11cb, #2575fc); /* グラデーション */
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* 📌 ボタンのホバーエフェクト */
+button:hover {
+  transform: scale(1.05);
+  background: linear-gradient(135deg, #2575fc, #6a11cb);
+}
+
+/* 📌 結果のデザイン */
+.result {
+  font-size: 22px;
+  font-weight: bold;
+  margin-top: 25px;
+  color: #ff3e6b;
+}
