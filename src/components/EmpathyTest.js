@@ -57,7 +57,7 @@ export default function EmpathyTest() {
 
   return (
     <div className="container">  
-      <h1>🔥 営業向け共感力診断テスト 🔥</h1>
+      <h1>🔥 共感タイプ診断 for Sales 🔥</h1>
       {result ? (
         <div className="result">{result}</div>
       ) : (
