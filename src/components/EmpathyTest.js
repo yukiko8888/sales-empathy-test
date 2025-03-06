@@ -1,22 +1,85 @@
 import React, { useState } from "react";
-import "./EmpathyTest.css";  // EmpathyTest.css を適用
-
+import "./EmpathyTest.css"; // CSS を適用
 
 const questions = [
   {
     question: "顧客が『価格がちょっと高い』と言ったら？",
     options: [
-      { text: "他の企業様もその点で迷われています。", type: "A" },
       { text: "価格を抑える方法もあります。例えば…", type: "C" },
+      { text: "確かにそうですよね。予算の制約は大きいですよね。", type: "A" },
       { text: "具体的にどの部分のコストが気になりますか？", type: "B" },
     ],
   },
   {
     question: "顧客が『導入するか迷っている』と言ったら？",
     options: [
-      { text: "どういった点が気になっていますか？", type: "B" },
+      { text: "導入した企業はこのように成功していますよ。", type: "C" },
+      { text: "導入を迷うポイントをもう少し詳しく教えていただけますか？", type: "B" },
       { text: "気持ちはわかります。導入するのは勇気がいりますよね。", type: "A" },
-      { text: "他の企業は導入して成功していますよ？", type: "C" },
+    ],
+  },
+  {
+    question: "顧客が『他社と比較して決めたい』と言ったら？",
+    options: [
+      { text: "どのポイントで比較されていますか？", type: "B" },
+      { text: "価格と実績で見れば、当社のほうが優れていますよ。", type: "C" },
+      { text: "他社の製品も素晴らしいですよね！", type: "A" },
+    ],
+  },
+  {
+    question: "顧客が『社内決裁が通るか不安』と言ったら？",
+    options: [
+      { text: "決裁のポイントになりそうな点はどこでしょう？", type: "B" },
+      { text: "決裁プロセスをサポートする資料をお出しできますが？", type: "C" },
+      { text: "それは大変ですよね…。社内調整は面倒ですよね。", type: "A" },
+    ],
+  },
+  {
+    question: "顧客が『検討します』と言ったら？",
+    options: [
+      { text: "今日決めていただければ、特典がありますよ。", type: "C" },
+      { text: "具体的にどんな点を検討されますか？", type: "B" },
+      { text: "そうですよね。じっくり考えていただいて大丈夫です！", type: "A" },
+    ],
+  },
+  {
+    question: "顧客が『今はタイミングが悪い』と言ったら？",
+    options: [
+      { text: "確かにタイミングって大事ですよね。", type: "A" },
+      { text: "今を逃すと、次の機会は厳しくなるかもしれませんよ？", type: "C" },
+      { text: "どのような条件が揃えば導入しやすいですか？", type: "B" },
+    ],
+  },
+  {
+    question: "顧客が『特に問題はないので大丈夫です』と言ったら？",
+    options: [
+      { text: "たとえば、今後の業務で不安を感じるポイントはありますか？", type: "B" },
+      { text: "では、また何かあればご連絡ください。", type: "C" },
+      { text: "それは安心しました！", type: "A" },
+    ],
+  },
+  {
+    question: "顧客が『ちょっと考えさせてください』と言ったら？",
+    options: [
+      { text: "では、1週間後に連絡しますね。", type: "C" },
+      { text: "わかります。決断には時間が必要ですよね。", type: "A" },
+      { text: "何かご判断の材料としてお手伝いできることはありますか？", type: "B" },
+    ],
+  },
+  {
+    question: "商談の最初に、顧客があまり乗り気でない様子…どうする？",
+    options: [
+      { text: "では商品の説明を始めますね。", type: "C" },
+      { text: "最近お忙しいですか？", type: "A" },
+      { text: "今日はどんな話ができると有益でしょうか？", type: "B" },
+    ],
+  },
+  {
+    question: "顧客が『決裁者と相談しないといけない』と言ったら？",
+    options: [
+      { text: "決裁者の方もご多忙ですよね。", type: "A" },
+      { text: "承認プロセスについて詳しく伺ってもいいですか？", type: "B" },
+      { text: "他社様ではすでに導入を決めていますよ。", type: "C" },
     ],
   },
 ];
@@ -56,7 +119,7 @@ export default function EmpathyTest() {
   };
 
   return (
-    <div className="container">  
+    <div className="container">
       <h1>🔥 共感タイプ診断 for Sales 🔥</h1>
       {result ? (
         <div className="result">{result}</div>
@@ -73,4 +136,3 @@ export default function EmpathyTest() {
     </div>
   );
 }
-
