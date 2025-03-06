@@ -1,28 +1,39 @@
-/* 📌 全体のデザインを調整 */
+/* 📌 ページ全体の背景を濃いグレー */
+body {
+  background: #1e1e1e;
+  color: #ffffff;
+  font-family: "Poppins", sans-serif; /* Googleフォントでオシャレに */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+/* 📌 コンテンツ全体のボックス */
 .container {
   max-width: 600px;
   margin: 50px auto;
   padding: 30px;
-  background: linear-gradient(135deg, #fdfbfb, #ebedee); /* 淡いグラデーション */
+  background: #ffcc00; /* 黄色のボックス */
   border-radius: 20px;
-  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.2);
+  box-shadow: 5px 5px 20px rgba(255, 204, 0, 0.4); /* 黄色の影を少し */
   text-align: center;
-  font-family: "Poppins", sans-serif; /* Googleフォント */
+  color: #1e1e1e; /* 濃いグレーの文字色 */
 }
 
-/* 📌 タイトルのデザイン */
+/* 📌 タイトル */
 h1 {
   font-size: 28px;
   font-weight: bold;
-  color: #ff3e6b; /* ネオンピンク */
-  text-shadow: 2px 2px 5px rgba(255, 62, 107, 0.3);
+  color: #1e1e1e; /* 濃いグレーでメリハリ */
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-/* 📌 質問部分のデザイン */
+/* 📌 質問のデザイン */
 .question {
   font-size: 20px;
   margin-bottom: 20px;
-  color: #333;
 }
 
 /* 📌 ボタンのデザイン */
@@ -33,19 +44,20 @@ button {
   margin: 12px auto;
   font-size: 18px;
   border: none;
-  border-radius: 30px; /* 丸みをつける */
-  background: linear-gradient(135deg, #6a11cb, #2575fc); /* グラデーション */
-  color: white;
+  border-radius: 30px;
+  background: #1e1e1e; /* 濃いグレー */
+  color: #ffcc00; /* 黄色の文字 */
   font-weight: bold;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
-  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 3px 3px 10px rgba(255, 204, 0, 0.2);
 }
 
-/* 📌 ボタンのホバーエフェクト */
+/* 📌 ボタンのホバーアニメーション */
 button:hover {
   transform: scale(1.05);
-  background: linear-gradient(135deg, #2575fc, #6a11cb);
+  background: #333333; /* 少し明るいグレー */
+  color: #ffffff; /* ホバー時は白字に */
 }
 
 /* 📌 結果のデザイン */
@@ -53,5 +65,5 @@ button:hover {
   font-size: 22px;
   font-weight: bold;
   margin-top: 25px;
-  color: #ff3e6b;
+  color: #1e1e1e;
 }
