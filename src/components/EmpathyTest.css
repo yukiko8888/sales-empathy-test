@@ -1,8 +1,8 @@
-/* 📌 ページ全体の背景を濃いグレー */
+/* 📌 ページ全体の背景を明るいグレーに */
 body {
-  background: #1e1e1e;
-  color: #ffffff;
-  font-family: "Poppins", sans-serif; /* Googleフォントでオシャレに */
+  background: #f5f5f5; /* 明るいグレー */
+  color: #333333; /* ダークグレー */
+  font-family: "Poppins", sans-serif; /* Googleフォントで柔らかい雰囲気 */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -10,33 +10,33 @@ body {
   margin: 0;
 }
 
-/* 📌 コンテンツ全体のボックス */
+/* 📌 診断テストのボックス */
 .container {
   max-width: 600px;
   margin: 50px auto;
   padding: 30px;
-  background: #ffcc00; /* 黄色のボックス */
+  background: #ffcc00; /* 黄色で目立たせる */
   border-radius: 20px;
-  box-shadow: 5px 5px 20px rgba(255, 204, 0, 0.4); /* 黄色の影を少し */
+  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.2); /* ソフトな影 */
   text-align: center;
-  color: #1e1e1e; /* 濃いグレーの文字色 */
+  color: #333333; /* 文字は濃いグレー */
 }
 
 /* 📌 タイトル */
 h1 {
   font-size: 28px;
   font-weight: bold;
-  color: #1e1e1e; /* 濃いグレーでメリハリ */
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  color: #333333; /* 濃いグレーで統一 */
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-/* 📌 質問のデザイン */
+/* 📌 質問 */
 .question {
   font-size: 20px;
   margin-bottom: 20px;
 }
 
-/* 📌 ボタンのデザイン */
+/* 📌 ボタンデザイン */
 button {
   display: block;
   width: 90%;
@@ -45,25 +45,24 @@ button {
   font-size: 18px;
   border: none;
   border-radius: 30px;
-  background: #1e1e1e; /* 濃いグレー */
-  color: #ffcc00; /* 黄色の文字 */
+  background: #4a4a4a; /* 濃いグレー */
+  color: #ffffff; /* 文字は白 */
   font-weight: bold;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
-  box-shadow: 3px 3px 10px rgba(255, 204, 0, 0.2);
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
 }
 
-/* 📌 ボタンのホバーアニメーション */
+/* 📌 ボタンのホバーエフェクト */
 button:hover {
   transform: scale(1.05);
-  background: #333333; /* 少し明るいグレー */
-  color: #ffffff; /* ホバー時は白字に */
+  background: #666666; /* ホバー時は少し明るいグレー */
 }
 
-/* 📌 結果のデザイン */
+/* 📌 診断結果のデザイン */
 .result {
   font-size: 22px;
   font-weight: bold;
   margin-top: 25px;
-  color: #1e1e1e;
+  color: #333333;
 }
