@@ -91,7 +91,7 @@ const results = {
 };
 
 const sendResultToGoogleSheets = (username, result) => {
-  fetch("https://script.google.com/a/macros/broadleaf.co.jp/s/AKfycbyT9f7ARGBYJXx5fYB0cAwD_Ck6GyjD5DC2oBpXjFBsyWA7qrcoruhuvu4H0RdT90XB/exec", {
+  fetch("https://script.google.com/a/macros/broadleaf.co.jp/s/AKfycbwpIdQvELZVKvlfhD_KZT5W9EnRScjZVmK2LTBHvofyqDt5OFs4DCDPPwefqWQeWELX/exec", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
