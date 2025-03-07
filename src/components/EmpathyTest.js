@@ -91,16 +91,16 @@ const results = {
 };
 
 const sendResultToGoogleSheets = (username, result) => {
+  console.log("📤 データ送信開始:", username, result);
+
   fetch("https://script.google.com/a/macros/broadleaf.co.jp/s/AKfycbyyDkL1tgLNxV21_eGaC2Oa8CREhz8QlXATbQrUl6GLNHkGi2nslVip493x3pwQtTzp/exec", {
     method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
+    headers: {"Content-Type": "application/json"},
     body: JSON.stringify({ username, result }),
   })
     .then((response) => response.text()) // ✅ CORS対応のため `.json()` ではなく `.text()`
-    .then((data) => console.log("Success:", data))
-    .catch((error) => console.error("Error:", error));
+    .then((data) => console.log("✅ 送信成功:", data)) // ✅ 追加
+    .catch((error) => console.error("🚨 送信エラー:", error));
 };
 
 
@@ -110,6 +110,8 @@ export default function EmpathyTest() {
   const [result, setResult] = useState(null);
 
   const calculateResult = (finalAnswers) => {
+    console.log("🧮 診断集計開始:", finalAnswers); // ✅ 追加
+
     const counts = finalAnswers.reduce((acc, type) => {
       acc[type] = (acc[type] || 0) + 1;
       return acc;
@@ -120,6 +122,8 @@ export default function EmpathyTest() {
     );
 
     const finalResult = results[highestType];
+    console.log("🏆 診断結果:", finalResult); // ✅ 追加
+
     setResult(finalResult);
 
     // ユーザー名を取得し、Googleスプレッドシートに送信
