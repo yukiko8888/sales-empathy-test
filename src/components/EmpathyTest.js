@@ -85,27 +85,15 @@ const questions = [
 ];
 
 const results = {
-  A: "💛 感情的共感タイプ：顧客の気持ちに寄り添い信頼を得るのが得意。",
-  B: "💙 認知的共感タイプ：顧客の本音を引き出し、最適な提案ができる。",
-  C: "❤️ 論理的営業タイプ：データや実績を活かし、合理的に商談を進める。",
-};
-
-const sendResultToGoogleSheets = (username, result) => {
-  fetch("https://script.google.com/a/macros/broadleaf.co.jp/s/AKfycbx4RiKFzS7HdHYvhI31cpX3f4aeS1escgIgNGFdRsvR4Fv1DuBJ1-liSJ1eq6cX5u3Y/exec", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ username, result }),
-  })
-    .then((response) => response.text())
-    .then((data) => console.log("Success:", data))
-    .catch((error) => console.error("Error:", error));
+  A: "💛 感情的共感タイプ：顧客の気持ちに寄り添い信頼を得るのが得意。ただし、決断を促す工夫が必要！",
+  B: "💙 認知的共感タイプ：顧客の本音を引き出し、最適な提案ができる。ただし、冷たい印象を与えないよう注意！",
+  C: "❤️ 論理的営業タイプ：データや実績を活かし、合理的に商談を進めるのが得意。ただし、共感をもう少し意識すると◎！",
 };
 
 export default function EmpathyTest() {
   const [answers, setAnswers] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [result, setResult] = useState(null);
-  const [username, setUsername] = useState("");
 
   const calculateResult = (finalAnswers) => {
     const counts = finalAnswers.reduce((acc, type) => {
@@ -113,31 +101,42 @@ export default function EmpathyTest() {
       return acc;
     }, {});
 
-    const maxCount = Math.max(...Object.values(counts));
-    const tiedTypes = Object.keys(counts).filter(type => counts[type] === maxCount);
-    const finalType = tiedTypes.length === 1 ? tiedTypes[0] : tiedTypes[Math.floor(Math.random() * tiedTypes.length)];
-    const finalResult = results[finalType];
+    const highestType = Object.keys(counts).reduce((a, b) =>
+      counts[a] > counts[b] ? a : b
+    );
+    setResult(results[highestType]);
+  };
 
-    setResult(finalResult);
-    sendResultToGoogleSheets(username, finalResult);
+  const handleAnswer = (type) => {
+    setAnswers((prevAnswers) => {
+      const newAnswers = [...prevAnswers, type];
+      if (newAnswers.length === questions.length) {
+        calculateResult(newAnswers);
+      }
+      return newAnswers;
+    });
+
+    setCurrentIndex((prevIndex) =>
+      prevIndex + 1 < questions.length ? prevIndex + 1 : prevIndex
+    );
   };
 
   return (
     <div className="container">
       <h1>🔥 共感タイプ診断 for Sales 🔥</h1>
-      {!result && currentIndex === 0 && (
-        <div>
-          <input type="text" placeholder="名前を入力" value={username} onChange={(e) => setUsername(e.target.value)} />
-          <button onClick={() => setCurrentIndex(1)}>診断を開始</button>
-        </div>
-      )}
-      {result ? <div className="result">{result}</div> : (
-        <div>
-          <p className="question">{questions[currentIndex - 1].question}</p>
-          {questions[currentIndex - 1].options.map((option) => (
-            <button key={option.text} onClick={() => calculateResult(option.type)}>{option.text}</button>
-          ))}
-        </div>
+      {result ? (
+        <div className="result">{result}</div>
+      ) : (
+        questions[currentIndex] && (
+          <div>
+            <p className="question">{questions[currentIndex].question}</p>
+            {questions[currentIndex].options.map((option) => (
+              <button key={option.text} onClick={() => handleAnswer(option.type)}>
+                {option.text}
+              </button>
+            ))}
+          </div>
+        )
       )}
     </div>
   );
