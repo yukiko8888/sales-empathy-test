@@ -91,7 +91,7 @@ const results = {
 };
 
 const sendResultToGoogleSheets = (username, result) => {
-  fetch("<<GASのウェブアプリURL>>", {
+  fetch("https://script.google.com/a/macros/broadleaf.co.jp/s/AKfycbx4RiKFzS7HdHYvhI31cpX3f4aeS1escgIgNGFdRsvR4Fv1DuBJ1-liSJ1eq6cX5u3Y/exec", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ username, result }),
@@ -142,4 +142,3 @@ export default function EmpathyTest() {
     </div>
   );
 }
-
