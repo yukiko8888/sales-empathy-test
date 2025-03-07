@@ -90,6 +90,19 @@ const results = {
   C: "❤️ 論理的営業タイプ：データや実績を活かし、合理的に商談を進めるのが得意。ただし、共感をもう少し意識すると◎！",
 };
 
+const sendResultToGoogleSheets = (username, result) => {
+  fetch("https://script.google.com/a/macros/broadleaf.co.jp/s/AKfycbw5LpN5uhmVYskcTyWiQ3BMaiNrHtb8ZpoAVhlvZrqO4ckWcrIf0rm6U0QDWGAfDtAn/exec", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ username, result }),
+  })
+    .then((response) => response.text())
+    .then((data) => console.log("Success:", data))
+    .catch((error) => console.error("Error:", error));
+};
+
 export default function EmpathyTest() {
   const [answers, setAnswers] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -104,7 +117,15 @@ export default function EmpathyTest() {
     const highestType = Object.keys(counts).reduce((a, b) =>
       counts[a] > counts[b] ? a : b
     );
-    setResult(results[highestType]);
+
+    const finalResult = results[highestType];
+    setResult(finalResult);
+
+    // ユーザー名を取得し、Googleスプレッドシートに送信
+    const username = prompt("あなたの名前を入力してください:");
+    if (username) {
+      sendResultToGoogleSheets(username, finalResult);
+    }
   };
 
   const handleAnswer = (type) => {
