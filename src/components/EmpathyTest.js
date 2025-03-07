@@ -93,7 +93,7 @@ const results = {
 const sendResultToGoogleSheets = (username, result) => {
   console.log("📤 データ送信開始:", username, result);
 
-  fetch("https://script.google.com/macros/s/AKfycbxs8Q4kUjO8mkpgIc0vlecFzCBfj7bbnxazTAWdplF4rZ2NHxeJsHe9DzsUlNyMl3A9/exec", {
+  fetch("https://script.google.com/macros/s/AKfycbx3i1qtaRIx1Q8z0mwAkda7MYJwl0YtqQgcL-dvtHIjfVd8eJvOBaxIel3ghwpVjaSA/exec", {
     method: "POST",
     headers: {"Content-Type": "application/json"},
     body: JSON.stringify({ username, result }),
