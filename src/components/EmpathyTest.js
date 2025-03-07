@@ -91,18 +91,18 @@ const results = {
 };
 
 const sendResultToGoogleSheets = (username, result) => {
-  fetch("https://script.google.com/a/macros/broadleaf.co.jp/s/AKfycbwpIdQvELZVKvlfhD_KZT5W9EnRScjZVmK2LTBHvofyqDt5OFs4DCDPPwefqWQeWELX/exec", {
+  fetch("https://script.google.com/a/macros/broadleaf.co.jp/s/AKfycbxakDbyw9FHkDEM9z7ZdDgws41yCVzBb5nCZURVsthDmhME8TgMaNXrjs6xyK9wvbM-/exec", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
-    mode: "no-cors",
     body: JSON.stringify({ username, result }),
   })
-    .then((response) => response.text())
+    .then((response) => response.text()) // ✅ CORS対応のため `.json()` ではなく `.text()`
     .then((data) => console.log("Success:", data))
     .catch((error) => console.error("Error:", error));
 };
+
 
 export default function EmpathyTest() {
   const [answers, setAnswers] = useState([]);
