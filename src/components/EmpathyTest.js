@@ -93,7 +93,7 @@ const results = {
 const sendResultToGoogleSheets = (username, result) => {
   console.log("📤 データ送信開始:", username, result);
 
-  fetch("https://script.google.com/a/macros/broadleaf.co.jp/s/AKfycbyyDkL1tgLNxV21_eGaC2Oa8CREhz8QlXATbQrUl6GLNHkGi2nslVip493x3pwQtTzp/exec", {
+  fetch("https://script.google.com/a/macros/broadleaf.co.jp/s/AKfycbzz9yBwvVMyal1XvYgP_MjCyx_udWuR8NZXat_eQ0uGpLI5o4T4KCCauvbRmr6oy00T/exec", {
     method: "POST",
     headers: {"Content-Type": "application/json"},
     body: JSON.stringify({ username, result }),
